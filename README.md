@@ -4,7 +4,7 @@
 
 > This is a To-Do list App it is used for managing daily tasks, which was built with Html, CSS, Javascript, and Webpack. With the functionality to add, edit, remove, delete multiple completed tasks.
 
-![screenshot](Images/Screenshot (20).png)
+![screenshot](https://github.com/VTY1999/To-Do-list/blob/To-Do-list-structure/Images/Screenshot%20(20).png)
 
 
 ## Built With
