@@ -1,59 +1,48 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# To Do List
 
-> One paragraph statement about the project.
+> This is a To-Do list App it is used for managing daily tasks, which was built with Html, CSS, Javascript, and Webpack. With the functionality to add, edit, remove, delete multiple completed tasks.
 
-![screenshot](./app_screenshot.png)
+![screenshot](https://github.com/VTY1999/To-Do-list/blob/To-Do-list-structure/Images/Screenshot%20(20).png)
 
-Additional description about the project and its features.
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
-
-## Live Demo
-
-[Live Demo Link](https://livedemo.com)
-
+- Html
+- CSS
+- Javascript
+- Webpack
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+To get a local copy follow these steps:
 
+1. Clone the repo by typing on your terminal
 
-To get a local copy up and running follow these simple example steps.
+```
+git clone https://github.com/VTY1999/To-Do-list.git
+```
 
-### Prerequisites
+2. Access the repo with
 
-### Setup
+```
+cd To-Do-list
+```
 
-### Install
+3. Code freely
 
-### Usage
+```
+code .
+```
 
-### Run tests
+## Author
 
-### Deployment
+👤 **Verissimo Francis**
 
-
-
-## Authors
-
-👤 **Author1**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@githubhandle](https://github.com/VTY1999)
+- Twitter: [@twitterhandle](https://twitter.com/verissimoty?s=09)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/francis-verissimo-b5b4521b1/)
 
 ## 🤝 Contributing
 
