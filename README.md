@@ -14,11 +14,6 @@
 - Javascript
 - Webpack
 
-## Live Demo
-
-[Live Demo Link](https://vty1999.github.io/To-Do-list/)
-
-
 ## Getting Started
 
 To get a local copy follow these steps:
