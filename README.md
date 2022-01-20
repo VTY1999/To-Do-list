@@ -4,7 +4,7 @@
 
 > This is a simple web page it is used for managing daily tasks, which was built with Html, CSS, Javascript, and Webpack. With the functionality to add, edit, remove, delete multiple completed tasks.
 
-![screenshot](C:\Users\TONY\Desktop\To-Do-list\Images\Screenshot (22).png)
+![screenshot](https://github.com/VTY1999/To-Do-list/blob/To-Do-list-add-and-remove/Images/Screenshot%20(22).png)
 
 
 ## Built With
