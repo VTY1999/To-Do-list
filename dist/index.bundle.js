@@ -537,7 +537,7 @@ class Task {
     this.list = this.list.filter((task) => task.index !== index);
     this.list = this.list.map((t) => {
       if (t.index > index) {
-        t.index -= 1;
+        t.index = 0;
       }
       return t;
     });
