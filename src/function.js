@@ -1,5 +1,5 @@
 const apply = (listTask, container) => {
-  const sortedTodos = listTask.list.sort((a, b) => a.index - b.index);
+  const sortedTodos = listTask.list.sort();
   container.innerHTML = '';
   let todosHtml = '';
   sortedTodos.forEach((todo) => {
