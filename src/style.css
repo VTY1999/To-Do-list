@@ -13,6 +13,11 @@
   font-family: "Inter", sans-serif;
 }
 
+.todo {
+  padding: 3%;
+  border-bottom: 0.6px solid #d8d8d8;
+}
+
 #container .todo {
   width: 100%;
   font-style: italic;
@@ -42,11 +47,6 @@
 .clear a:hover {
   color: #777a87;
   font-weight: bold;
-}
-
-.todo {
-  padding: 3%;
-  border-bottom: 0.6px solid #d8d8d8;
 }
 
 .checkbox {
@@ -103,7 +103,6 @@ form {
   border-top: none;
   border-bottom: none;
   width: 100%;
-  padding: 3%;
   padding-left: 28%;
   line-height: 29px;
   font-size: 15px;
