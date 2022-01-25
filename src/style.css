@@ -1,5 +1,5 @@
 #container {
-  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  box-shadow: #0000003d 0 3px 8px;
   max-width: 50%;
   margin: 50px auto;
 }
@@ -13,22 +13,27 @@
   font-family: "Inter", sans-serif;
 }
 
-#container input[type='text'] {
-  width: 94%;
+.todo {
+  padding: 3%;
+  border-bottom: 0.6px solid #d8d8d8;
+}
+
+#container .todo {
+  width: 100%;
   font-style: italic;
-  border-top: 0.6px solid rgb(216, 216, 216);
+  border-top: 0.6px solid #d8d8d8;
   border-right: none;
-  border-bottom: 0.6px solid rgb(216, 216, 216);
+  border-bottom: 0.6px solid #d8d8d8;
   border-left: none;
   padding: 3%;
 }
 
-#container input[type='text']:focus {
+#container .todo:focus {
   outline: none;
 }
 
 .clear {
-  background-color: rgba(240, 240, 240, 0.493);
+  background-color: #f0f0f07e;
   text-align: center;
   padding: 3%;
 }
@@ -44,11 +49,6 @@
   font-weight: bold;
 }
 
-.todo {
-  padding: 3%;
-  border-bottom: 0.6px solid rgb(216, 216, 216);
-}
-
 .checkbox {
   margin: 10px;
   height: 15px;
@@ -57,6 +57,7 @@
   border: 2px solid #b4b4b6;
   border-radius: 4px;
   cursor: pointer;
+  position: absolute;
 }
 
 .checkbox:hover {
@@ -65,4 +66,44 @@
 
 span {
   font-family: "Inter", sans-serif;
+}
+
+.item {
+  display: flex;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 0.6px solid #d8d8d8;
+}
+
+form {
+  display: flex;
+}
+
+#add {
+  padding-left: 42%;
+  padding-top: 2%;
+  height: 0%;
+  width: 0%;
+  position: absolute;
+}
+
+.remove {
+  padding-top: 1%;
+  margin: auto;
+  position: absolute;
+  margin-left: 42%;
+}
+
+.todo-edit {
+  font-family: "Inter", sans-serif;
+  padding-top: 4%;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
+  width: 100%;
+  padding-left: 28%;
+  line-height: 29px;
+  font-size: 15px;
 }

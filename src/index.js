@@ -1,25 +1,20 @@
 import './style.css';
+import apply from './function.js';
+import Task from './storage.js';
 
-const task = [{
-  description: 'Complete your project',
-  completed: true,
-  index: 1,
-}, {
-  description: 'Do some coding challenge',
-  completed: true,
-  index: 2,
-}];
+const container = document.querySelector('#tasks');
+const listTask = new Task();
+apply(listTask, container);
 
-const apply = (tasks) => {
-  const tasksSorted = tasks.sort((a, b) => a.index - b.index);
-  const tasksContainer = document.querySelector('#tasks');
-  let todosHtml = '';
-  tasksSorted.forEach((todo) => {
-    todosHtml += ` <div class="todo">
-          <input type="checkbox" class="checkbox" /><span> ${todo.description}</span>
-      </div>`;
-  });
-  tasksContainer.innerHTML = todosHtml;
-};
-
-apply(task);
+const addTodoBtn = document.querySelector('#add');
+addTodoBtn.addEventListener('click', () => {
+  const description = document.querySelector('.todo').value.trim();
+  const completed = false;
+  const index = listTask.list.length + 1;
+  const newTodo = { description, completed, index };
+  if (description) {
+    listTask.addTask(newTodo);
+    apply(listTask, container);
+  }
+  document.querySelector('.todo').value = '';
+});
