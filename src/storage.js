@@ -9,7 +9,7 @@ export default class Task {
   }
 
   RemoveTask(index) {
-    this.list = this.list.filter((task) => task.index !== null);
+    this.list = this.list.filter((task) => task.index !== index);
     this.list = this.list.map((t) => {
       if (t.index > index) {
         t.index -= 1;
