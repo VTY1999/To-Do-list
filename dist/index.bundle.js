@@ -498,10 +498,10 @@ const apply = (listTask, container) => {
   container.innerHTML = todosHtml;
 
   const removeBtns = document.querySelectorAll('.remove');
-  removeBtns.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      const element = btn.parentNode;
-      listTask.RemoveTask(Number(e.target.parentNode.id));
+  removeBtns.forEach((i) => {
+    i.addEventListener('click', (e) => {
+      const element = i.parentNode;
+      listTask.RemoveTask(Number(e.target.id));
       element.remove();
     });
   });
@@ -534,7 +534,7 @@ class Task {
   }
 
   RemoveTask(index) {
-    this.list = this.list.filter((task) => task.index !== null);
+    this.list = this.list.filter((task) => task.index !== index);
     this.list = this.list.map((t) => {
       if (t.index > index) {
         t.index -= 1;
@@ -648,7 +648,7 @@ const addTodoBtn = document.querySelector('#add');
 addTodoBtn.addEventListener('click', () => {
   const description = document.querySelector('.todo').value.trim();
   const completed = false;
-  const index = listTask.list.length;
+  const index = listTask.list.length + 1;
   const newTodo = { description, completed, index };
   if (description) {
     listTask.addTask(newTodo);
