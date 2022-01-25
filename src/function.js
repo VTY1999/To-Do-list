@@ -1,14 +1,16 @@
 const apply = (listTask, container) => {
-  const sortedTodos = listTask.list.sort();
+  const sortedTodos = listTask.list.sort((a, b) => a.index - b.index);
   container.innerHTML = '';
   let todosHtml = '';
   sortedTodos.forEach((todo) => {
+    const checkedTodo = todo.completed ? 'checked' : '';
+    const checkClass = todo.completed ? 'checked' : '';
     todosHtml += `  <div class="item">
                               <div>
-                                  <input id="${todo.id}" type="checkbox" class="checkbox" />
-                                  <input id="${todo.index}" type="text" class="todo-edit" value="${todo.description}" />
+                                  <input id="${todo.id}" type="checkbox" class="checkbox" ${checkedTodo}/>
+                                  <input id="${todo.id}" type="text" class="todo-edit" ${checkClass} value="${todo.description}" />
                             </div>
-                        <i id="${todo.index}" class="remove fas fa-trash"></i>
+                        <i id="${todo.id}" class="remove fas fa-trash"></i>
                     </div>
           `;
   });
@@ -19,15 +21,24 @@ const apply = (listTask, container) => {
   removeBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       const element = btn.parentNode;
-      listTask.RemoveTask(Number(e.target.parentNode.id));
       element.remove();
+      listTask.RemoveTask((e.target.parentNode.id));
     });
   });
 
   const todosContent = document.querySelectorAll('.todo-edit');
   todosContent.forEach((todo) => {
     todo.addEventListener('change', (e) => {
-      listTask.EditTask(Number(e.target.id), e.target.value);
+      listTask.EditTask((e.target.id), e.target.value);
+    });
+  });
+
+  const taskCheck = document.querySelectorAll('.checkbox');
+  taskCheck.forEach((todo) => {
+    todo.addEventListener('change', (e) => {
+      const { id } = e.target;
+      listTask.CompleteTask(id, e.target.checked);
+      e.target.parentNode.lastElementChild.classList.toggle('checked');
     });
   });
 };
