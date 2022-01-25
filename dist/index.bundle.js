@@ -534,10 +534,10 @@ class Task {
   }
 
   RemoveTask(index) {
-    this.list = this.list.filter((task) => task.index !== index);
+    this.list = this.list.filter((task) => task.index !== null);
     this.list = this.list.map((t) => {
       if (t.index > index) {
-        t.index = 0;
+        t.index -= 1;
       }
       return t;
     });
@@ -648,7 +648,7 @@ const addTodoBtn = document.querySelector('#add');
 addTodoBtn.addEventListener('click', () => {
   const description = document.querySelector('.todo').value.trim();
   const completed = false;
-  const index = listTask.list.length + 1;
+  const index = listTask.list.length;
   const newTodo = { description, completed, index };
   if (description) {
     listTask.addTask(newTodo);
