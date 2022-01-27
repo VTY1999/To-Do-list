@@ -500,11 +500,18 @@ const apply = (listTask, container) => {
   container.innerHTML = todosHtml;
 
   const removeBtns = document.querySelectorAll('.remove');
-  removeBtns.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      const element = btn.parentNode;
-      element.remove();
-      listTask.RemoveTask((e.target.parentNode.id));
+  removeBtns.forEach((i) => {
+    i.addEventListener('click', (e) => {
+      const id = `id${Math.random().toString(16).slice(2)}`;
+      const description = document.querySelector('.todo').value.trim();
+      const completed = false;
+      const index = listTask.list.length + 1;
+      const newTodo = {
+        id, description, completed, index,
+      };
+      const element = i.parentNode;
+      element.remove(newTodo);
+      listTask.RemoveTask(e.target.id);
     });
   });
 
@@ -534,6 +541,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Task)
 /* harmony export */ });
+/* eslint-disable no-undef */
 class Task {
   constructor() {
     this.list = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
@@ -544,8 +552,8 @@ class Task {
     localStorage.setItem('tasks', JSON.stringify(this.list));
   }
 
-  RemoveTask() {
-    this.list = this.list.filter((todo) => todo.id === null);
+  RemoveTask(taskID) {
+    this.list = this.list.filter((todo) => todo.id !== taskID);
     this.list.forEach((todo, index) => {
       todo.index = index + 1;
     });

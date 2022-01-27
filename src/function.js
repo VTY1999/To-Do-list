@@ -18,11 +18,18 @@ const apply = (listTask, container) => {
   container.innerHTML = todosHtml;
 
   const removeBtns = document.querySelectorAll('.remove');
-  removeBtns.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      const element = btn.parentNode;
-      element.remove();
-      listTask.RemoveTask((e.target.parentNode.id));
+  removeBtns.forEach((i) => {
+    i.addEventListener('click', (e) => {
+      const id = `id${Math.random().toString(16).slice(2)}`;
+      const description = document.querySelector('.todo').value.trim();
+      const completed = false;
+      const index = listTask.list.length + 1;
+      const newTodo = {
+        id, description, completed, index,
+      };
+      const element = i.parentNode;
+      element.remove(newTodo);
+      listTask.RemoveTask(e.target.id);
     });
   });
 

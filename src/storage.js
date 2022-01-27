@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 export default class Task {
   constructor() {
     this.list = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
@@ -8,8 +9,8 @@ export default class Task {
     localStorage.setItem('tasks', JSON.stringify(this.list));
   }
 
-  RemoveTask() {
-    this.list = this.list.filter((todo) => todo.id === null);
+  RemoveTask(taskID) {
+    this.list = this.list.filter((todo) => todo.id !== taskID);
     this.list.forEach((todo, index) => {
       todo.index = index + 1;
     });
