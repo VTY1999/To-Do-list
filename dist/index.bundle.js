@@ -481,16 +481,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 const apply = (listTask, container) => {
-  const sortedTodos = listTask.list.sort();
+  const sortedTodos = listTask.list.sort((a, b) => a.index - b.index);
   container.innerHTML = '';
   let todosHtml = '';
   sortedTodos.forEach((todo) => {
+    const checkedTodo = todo.completed ? 'checked' : '';
+    const checkClass = todo.completed ? 'checked' : '';
     todosHtml += `  <div class="item">
                               <div>
-                                  <input id="${todo.id}" type="checkbox" class="checkbox" />
-                                  <input id="${todo.index}" type="text" class="todo-edit" value="${todo.description}" />
+                                  <input id="${todo.id}" type="checkbox" class="checkbox" ${checkedTodo}/>
+                                  <input id="${todo.id}" type="text" class="todo-edit" ${checkClass} value="${todo.description}" />
                             </div>
-                        <i id="${todo.index}" class="remove fas fa-trash"></i>
+                        <i id="${todo.id}" class="remove fas fa-trash"></i>
                     </div>
           `;
   });
@@ -500,16 +502,32 @@ const apply = (listTask, container) => {
   const removeBtns = document.querySelectorAll('.remove');
   removeBtns.forEach((i) => {
     i.addEventListener('click', (e) => {
+      const id = `id${Math.random().toString(16).slice(2)}`;
+      const description = document.querySelector('.todo').value.trim();
+      const completed = false;
+      const index = listTask.list.length + 1;
+      const newTodo = {
+        id, description, completed, index,
+      };
       const element = i.parentNode;
-      listTask.RemoveTask(Number(e.target.id));
-      element.remove();
+      element.remove(newTodo);
+      listTask.RemoveTask(e.target.id);
     });
   });
 
   const todosContent = document.querySelectorAll('.todo-edit');
   todosContent.forEach((todo) => {
     todo.addEventListener('change', (e) => {
-      listTask.EditTask(Number(e.target.id), e.target.value);
+      listTask.EditTask((e.target.id), e.target.value);
+    });
+  });
+
+  const taskCheck = document.querySelectorAll('.checkbox');
+  taskCheck.forEach((todo) => {
+    todo.addEventListener('change', (e) => {
+      const { id } = e.target;
+      listTask.CompleteTask(id, e.target.checked);
+      e.target.parentNode.lastElementChild.classList.toggle('checked');
     });
   });
 };
@@ -523,6 +541,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Task)
 /* harmony export */ });
+/* eslint-disable no-undef */
 class Task {
   constructor() {
     this.list = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
@@ -533,20 +552,17 @@ class Task {
     localStorage.setItem('tasks', JSON.stringify(this.list));
   }
 
-  RemoveTask(index) {
-    this.list = this.list.filter((task) => task.index !== index);
-    this.list = this.list.map((t) => {
-      if (t.index > index) {
-        t.index -= 1;
-      }
-      return t;
+  RemoveTask(taskID) {
+    this.list = this.list.filter((todo) => todo.id !== taskID);
+    this.list.forEach((todo, index) => {
+      todo.index = index + 1;
     });
     localStorage.setItem('tasks', JSON.stringify(this.list));
   }
 
   EditTask(taskID, taskDescription) {
     const newData = this.list.map((todo) => {
-      if (todo.index === taskID) {
+      if (todo.id === taskID) {
         return { ...todo, description: taskDescription };
       }
       return todo;
@@ -556,6 +572,20 @@ class Task {
 
   SortTasks(oldIndex, newIndex) {
     this.list[oldIndex - 1].index = newIndex;
+    localStorage.setItem('tasks', JSON.stringify(this.list));
+  }
+
+  CompleteTask(taskId, status) {
+    const selected = this.list.findIndex((element) => element.id === taskId);
+    this.list[selected].completed = status;
+    localStorage.setItem('tasks', JSON.stringify(this.list));
+  }
+
+  clearCompletedTasks() {
+    this.list = this.list.filter((todo) => !todo.completed);
+    this.list.forEach((todo, index) => {
+      todo.index = index + 1;
+    });
     localStorage.setItem('tasks', JSON.stringify(this.list));
   }
 }
@@ -646,15 +676,24 @@ const listTask = new _storage_js__WEBPACK_IMPORTED_MODULE_2__["default"]();
 
 const addTodoBtn = document.querySelector('#add');
 addTodoBtn.addEventListener('click', () => {
+  const id = `id${Math.random().toString(16).slice(2)}`;
   const description = document.querySelector('.todo').value.trim();
   const completed = false;
   const index = listTask.list.length + 1;
-  const newTodo = { description, completed, index };
+  const newTodo = {
+    id, description, completed, index,
+  };
   if (description) {
     listTask.addTask(newTodo);
     (0,_function_js__WEBPACK_IMPORTED_MODULE_1__["default"])(listTask, container);
   }
   document.querySelector('.todo').value = '';
+});
+
+const clearAll = document.querySelector('.clear');
+clearAll.addEventListener('click', () => {
+  listTask.clearCompletedTasks();
+  (0,_function_js__WEBPACK_IMPORTED_MODULE_1__["default"])(listTask, container);
 });
 
 })();
