@@ -518,7 +518,9 @@ const apply = (listTask, container) => {
   const todosContent = document.querySelectorAll('.todo-edit');
   todosContent.forEach((todo) => {
     todo.addEventListener('change', (e) => {
-      listTask.EditTask((e.target.id), e.target.value);
+      const { id } = e.target;
+      listTask.EditTask(id, e.target.value);
+      e.target.parentNode.lastElementChild.classList.toggle('.todo');
     });
   });
 
