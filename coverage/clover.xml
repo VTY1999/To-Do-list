@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1643797573586" clover="3.2.0">
-  <project timestamp="1643797573586" name="All files">
+<coverage generated="1643798834749" clover="3.2.0">
+  <project timestamp="1643798834749" name="All files">
     <metrics statements="21" coveredstatements="6" conditionals="4" coveredconditionals="2" methods="13" coveredmethods="4" elements="38" coveredelements="12" complexity="0" loc="21" ncloc="21" packages="1" files="1" classes="1"/>
     <file name="storage.js" path="C:\Users\TONY\Desktop\To-Do-list\src\storage.js">
       <metrics statements="21" coveredstatements="6" conditionals="4" coveredconditionals="2" methods="13" coveredmethods="4"/>
