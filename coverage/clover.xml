@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1643798834749" clover="3.2.0">
-  <project timestamp="1643798834749" name="All files">
-    <metrics statements="21" coveredstatements="6" conditionals="4" coveredconditionals="2" methods="13" coveredmethods="4" elements="38" coveredelements="12" complexity="0" loc="21" ncloc="21" packages="1" files="1" classes="1"/>
+<coverage generated="1643801064415" clover="3.2.0">
+  <project timestamp="1643801064415" name="All files">
+    <metrics statements="21" coveredstatements="7" conditionals="4" coveredconditionals="2" methods="13" coveredmethods="5" elements="38" coveredelements="14" complexity="0" loc="21" ncloc="21" packages="1" files="1" classes="1"/>
     <file name="storage.js" path="C:\Users\TONY\Desktop\To-Do-list\src\storage.js">
-      <metrics statements="21" coveredstatements="6" conditionals="4" coveredconditionals="2" methods="13" coveredmethods="4"/>
+      <metrics statements="21" coveredstatements="7" conditionals="4" coveredconditionals="2" methods="13" coveredmethods="5"/>
       <line num="4" count="2" type="cond" truecount="2" falsecount="0"/>
       <line num="8" count="3" type="stmt"/>
       <line num="9" count="3" type="stmt"/>
       <line num="13" count="3" type="stmt"/>
       <line num="14" count="1" type="stmt"/>
-      <line num="15" count="0" type="stmt"/>
+      <line num="15" count="2" type="stmt"/>
       <line num="17" count="1" type="stmt"/>
       <line num="21" count="0" type="stmt"/>
       <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
