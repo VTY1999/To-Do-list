@@ -21,11 +21,13 @@ describe('add and remove', () => {
   test('Add task', () => {
     const todoList = new Task();
     const newTodo = {
+      id: 'id123',
       description: 'task1',
       completed: false,
       index: 1,
     };
     const newTodo2 = {
+      id: 'id4d5sa',
       description: 'task2',
       completed: false,
       index: 2,
@@ -40,6 +42,7 @@ describe('add and remove', () => {
   test('remove task', () => {
     const todoList = new Task();
     const newTodo = {
+      id: 'id12sdad3',
       description: 'task3',
       completed: false,
       index: 3,
